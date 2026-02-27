@@ -126,3 +126,9 @@ Pharma biostatistics support
 Real-world evidence modeling
 
 Regulatory survival analysis pipelines
+
+## Model Diagnostics
+
+The proportional hazards assumption was assessed using Schoenfeld residuals.  
+The global test was non-significant (p = 0.46).  
+Time-varying coefficient modeling was explored but did not improve discrimination, supporting retention of the standard Cox model.
