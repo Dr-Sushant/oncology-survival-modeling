@@ -1,23 +1,27 @@
-Oncology Survival Modeling — Simulated Phase III Breast Cancer Trial
-Project Overview
+Oncology Survival Modeling
+
+Simulated Phase III Breast Cancer Trial (Hybrid R + Python)
+
+Executive Summary
 
 This project simulates a Phase III breast cancer clinical trial (n = 2000) and evaluates recurrence-free survival using both classical biostatistical methods and machine learning survival models.
 
-The objective is to demonstrate hybrid clinical analytics workflows applicable to oncology trials and translational research.
+The objective is to demonstrate an end-to-end hybrid clinical analytics workflow applicable to oncology trials, translational research, and regulatory survival modeling.
 
-Dataset Characteristics
+Study Design (Simulated)
 
 Sample size: 2000 patients
+Endpoint: Recurrence-Free Survival (time-to-event)
+Comparison: Standard vs Dose-Dense Treatment
+Censoring: Administrative censoring applied
 
-Endpoint: Recurrence-Free Survival
+Clinical Covariates Modeled
 
-Covariates:
-
-Treatment arm (standard vs dose-dense)
+Treatment arm
 
 Age
 
-HR status
+Hormone receptor (HR) status
 
 HER2 status
 
@@ -29,44 +33,96 @@ Lymph node involvement
 
 Tumor grade
 
-Statistical Modeling (R)
+Statistical Survival Modeling (R)
 
-Kaplan–Meier survival curves
+Kaplan–Meier survival estimation
 
-Multivariable Cox proportional hazards model
+Log-rank test
 
-Interaction modeling (Treatment × HER2)
+Multivariable Cox Proportional Hazards model
 
-Harrell’s C-index evaluation
+Treatment × HER2 interaction analysis
+
+Harrell’s Concordance Index
+
+Performance:
 
 C-index (Cox Model): ~0.61
 
-Machine Learning Modeling (Python)
+Interpretation: Moderate discrimination consistent with structured clinical covariate modeling.
+
+Machine Learning Survival Modeling (Python)
 
 Random Survival Forest
 
-Out-of-bag concordance index
+Out-of-bag concordance estimation
 
 Feature importance ranking
 
+Performance:
+
 C-index (RSF): ~0.58
 
-Key Insights
+Interpretation: Comparable but slightly lower discrimination relative to classical Cox modeling in this structured dataset.
 
-Treatment arm shows survival benefit
+Key Findings
 
-HER2 interaction modifies treatment effect
+Dose-dense treatment demonstrates survival benefit
 
-Classical Cox model outperforms RSF in this structured dataset
+HER2 status modifies treatment effect
 
-Clinical Relevance
+Cox regression provides better discrimination than Random Survival Forest under proportional hazards assumptions
 
-Demonstrates hybrid modeling strategy relevant to:
+Interaction modeling enhances clinical interpretability
 
-Clinical trial analytics
+Methodological Strengths
+
+Integration of statistical and machine learning survival models
+
+Explicit interaction modeling (Treatment × HER2)
+
+Cross-platform validation (R and Python)
+
+Discrimination assessment using C-index
+
+Reproducible hybrid analytics workflow
+
+Technical Stack
+
+R:
+
+survival
+
+survminer
+
+Python:
+
+scikit-survival
+
+lifelines
+
+pandas
+
+numpy
+
+Repository Structure
+
+breast_cancer_survival_modeling.R — Cox regression and survival analysis in R
+
+python_survival_modeling.ipynb — Random Survival Forest implementation in Python
+
+trial_data.csv — Simulated Phase III clinical dataset
+
+Practical Relevance
+
+This workflow mirrors real-world analytics tasks in:
+
+Clinical trial data analysis
 
 Oncology outcomes research
 
-Pharma data science workflows
+Pharma biostatistics support
+
+Real-world evidence modeling
 
 Regulatory survival analysis pipelines
