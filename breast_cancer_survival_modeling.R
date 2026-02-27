@@ -59,3 +59,35 @@ trial_data <- data.frame(
 )
 
 summary(trial_data)
+
+library(survival)
+library(survminer)
+
+km_fit <- survfit(Surv(time, event) ~ treatment, data = trial_data)
+
+ggsurvplot(
+  km_fit,
+  data = trial_data,
+  risk.table = TRUE,
+  pval = TRUE,
+  conf.int = FALSE,
+  legend.labs = c("Standard", "Dose-dense"),
+  legend.title = "Treatment",
+  xlab = "Years",
+  ylab = "Recurrence-Free Survival Probability"
+)
+
+cox_model <- coxph(
+  Surv(time, event) ~ treatment + age + hr_status + her2_status +
+    tnbc + tumor_size + nodes + grade +
+    treatment:her2_status,
+  data = trial_data
+)
+
+summary(cox_model)
+
+# Harrell's C-index using survival package
+cox_concordance <- summary(cox_model)$concordance
+cox_concordance
+
+write.csv(trial_data, "trial_data.csv", row.names = FALSE)
