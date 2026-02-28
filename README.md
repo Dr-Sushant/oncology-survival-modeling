@@ -136,3 +136,17 @@ This workflow mirrors real-world analytics tasks in:
 Inspired by dose-dense chemotherapy trials such as:
 
 Citron ML et al. (2003), The Lancet — CALGB 9741.
+
+---
+
+## Risk Stratification Analysis
+
+Both Cox and Random Survival Forest models were used to stratify patients into tertile-based risk groups.
+
+### Cox Risk Groups
+Clear survival separation observed across low, intermediate, and high-risk categories.
+
+### RSF Risk Groups (Test Set)
+Despite slightly lower C-index, RSF demonstrated clinically meaningful separation between risk strata.
+
+These findings support practical utility for treatment personalization and recurrence monitoring.
