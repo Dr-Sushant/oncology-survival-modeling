@@ -128,3 +128,11 @@ This workflow mirrors real-world analytics tasks in:
 - Pharma biostatistics support  
 - Real-world evidence modeling  
 - Regulatory survival analysis pipelines
+  
+---
+
+### Clinical Context
+
+Inspired by dose-dense chemotherapy trials such as:
+
+Citron ML et al. (2003), The Lancet — CALGB 9741.
