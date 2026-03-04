@@ -283,4 +283,6 @@ This type of evaluation mirrors real-world analyses performed during:
 
 ## Project Evolution
 
-This project will continue to evolve as an exploration of advanced clinical trial analytics and AI-assisted survival modeling.
+This project is part of an ongoing exploration of clinical trial analytics, survival modeling, and AI-assisted healthcare data science.
+
+Additional analytical components will be introduced as the project evolves.
