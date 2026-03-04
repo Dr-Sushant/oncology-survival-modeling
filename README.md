@@ -15,7 +15,7 @@ The objective is to demonstrate an end-to-end hybrid clinical analytics workflow
 
 ### Recurrence-Free Survival (Kaplan–Meier)
 
-![Kaplan-Meier Curve](kaplan_meier_curve.png)
+![Kaplan-Meier Curve](figures/kaplan_meier_curve.png)
 
 Dose-dense therapy demonstrates improved recurrence-free survival compared with standard treatment.
 
@@ -23,7 +23,7 @@ Dose-dense therapy demonstrates improved recurrence-free survival compared with 
 
 ### Cox Proportional Hazards Model
 
-![Cox Forest Plot](cox_forest_plot.png)
+![Cox Forest Plot](figures/cox_forest_plot.png)
 
 Multivariable Cox regression confirms a treatment benefit while adjusting for clinical covariates.
 
@@ -31,7 +31,7 @@ Multivariable Cox regression confirms a treatment benefit while adjusting for cl
 
 ### Random Survival Forest Feature Importance
 
-![RSF Importance](rsf_variable_importance.png)
+![RSF Importance](figures/rsf_variable_importance.png)
 
 Machine learning survival modeling identifies key predictors influencing recurrence risk.
 
@@ -39,7 +39,7 @@ Machine learning survival modeling identifies key predictors influencing recurre
 
 ### Risk Stratification (Random Survival Forest)
 
-![RSF Risk Stratification](rsf_risk_stratification.png)
+![RSF Risk Stratification](figures/rsf_risk_stratification.png)
 
 RSF-based stratification separates patients into clinically meaningful risk groups.
 
@@ -47,7 +47,7 @@ RSF-based stratification separates patients into clinically meaningful risk grou
 
 ### Adverse Event Risk Modeling
 
-![AE Cox Forest](ae_cox_forest_plot.png)
+![AE Cox Forest](figures/ae_cox_forest_plot.png)
 
 Safety analysis demonstrates increased toxicity risk associated with dose-dense therapy.
 
@@ -55,7 +55,7 @@ Safety analysis demonstrates increased toxicity risk associated with dose-dense 
 
 ### Benefit–Risk Profile
 
-![Benefit Risk](benefit_risk_profile.png)
+![Benefit Risk](figures/benefit_risk_profile.png)
 
 Combined efficacy and safety modeling illustrates the classical oncology trade-off between recurrence reduction and treatment toxicity.
 
