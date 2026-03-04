@@ -85,3 +85,103 @@ ggsurvplot(
   ylab = "Adverse Event-Free Probability",
   title = "Time to Adverse Event by Treatment"
 )
+
+ggsave(
+  "ae_kaplan_meier_curve.png",
+  width = 8,
+  height = 6,
+  dpi = 300
+)
+
+# Cox model for adverse event risk
+ae_cox_model <- coxph(
+  Surv(ae_time, ae_event) ~ treatment + age + hr_status + her2_status +
+    tnbc + tumor_size + nodes + grade,
+  data = trial_data
+)
+
+summary(ae_cox_model)
+
+# Test proportional hazards assumption
+ae_ph_test <- cox.zph(ae_cox_model)
+
+ae_ph_test
+
+plot(ae_ph_test)
+
+# Harrell's C-index
+ae_cindex <- summary(ae_cox_model)$concordance
+
+ae_cindex
+
+ggforest(
+  ae_cox_model,
+  data = trial_data,
+  main = "Cox Model — Risk of Adverse Events"
+)
+
+ggsave(
+  "ae_cox_forest_plot.png",
+  width = 8,
+  height = 6,
+  dpi = 300
+)
+
+# Extract HR for recurrence model
+recurrence_hr <- exp(coef(cox_model)["treatment"])
+
+# Extract HR for adverse event model
+toxicity_hr <- exp(coef(ae_cox_model)["treatment"])
+
+benefit_risk <- data.frame(
+  outcome = c("Recurrence Risk", "Adverse Event Risk"),
+  HR = c(recurrence_hr, toxicity_hr)
+)
+
+library(ggplot2)
+
+ggplot(benefit_risk, aes(x = outcome, y = HR, fill = outcome)) +
+  geom_bar(stat = "identity", width = 0.6) +
+  
+  geom_hline(
+    yintercept = 1,
+    linetype = "dashed",
+    color = "black",
+    size = 0.8
+  ) +
+  
+  geom_text(
+    aes(label = round(HR, 2)),
+    vjust = -0.5,
+    size = 5,
+    fontface = "bold"
+  ) +
+  
+  scale_fill_manual(
+    values = c(
+      "Adverse Event Risk" = "#E76F51",
+      "Recurrence Risk" = "#2A9D8F"
+    )
+  ) +
+  
+  labs(
+    title = "Benefit–Risk Profile of Dose-Dense Therapy",
+    subtitle = "Comparison of Recurrence Reduction vs Treatment Toxicity",
+    x = "",
+    y = "Hazard Ratio (Treatment vs Standard)"
+  ) +
+  
+  theme_minimal(base_size = 14) +
+  
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(size = 12)
+  )
+
+ggsave(
+  "benefit_risk_profile.png",
+  width = 9,
+  height = 6,
+  dpi = 300
+)
