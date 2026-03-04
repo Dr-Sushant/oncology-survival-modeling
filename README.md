@@ -1,5 +1,5 @@
 # Oncology Survival Modeling  
-Simulated Phase III Breast Cancer Trial (Hybrid R + Python)
+Hybrid Clinical Trial Analytics: Efficacy, Toxicity, and Benefit–Risk Evaluation
 
 ---
 
@@ -8,6 +8,56 @@ Simulated Phase III Breast Cancer Trial (Hybrid R + Python)
 This project simulates a Phase III breast cancer clinical trial (n = 2000) and evaluates recurrence-free survival using both classical biostatistical methods and machine learning survival models.
 
 The objective is to demonstrate an end-to-end hybrid clinical analytics workflow applicable to oncology trials, translational research, and regulatory survival modeling.
+
+---
+
+## Key Results
+
+### Recurrence-Free Survival (Kaplan–Meier)
+
+![Kaplan-Meier Curve](kaplan_meier_curve.png)
+
+Dose-dense therapy demonstrates improved recurrence-free survival compared with standard treatment.
+
+---
+
+### Cox Proportional Hazards Model
+
+![Cox Forest Plot](cox_forest_plot.png)
+
+Multivariable Cox regression confirms a treatment benefit while adjusting for clinical covariates.
+
+---
+
+### Random Survival Forest Feature Importance
+
+![RSF Importance](rsf_variable_importance.png)
+
+Machine learning survival modeling identifies key predictors influencing recurrence risk.
+
+---
+
+### Risk Stratification (Random Survival Forest)
+
+![RSF Risk Stratification](rsf_risk_stratification.png)
+
+RSF-based stratification separates patients into clinically meaningful risk groups.
+
+---
+
+### Adverse Event Risk Modeling
+
+![AE Cox Forest](ae_cox_forest_plot.png)
+
+Safety analysis demonstrates increased toxicity risk associated with dose-dense therapy.
+
+---
+
+### Benefit–Risk Profile
+
+![Benefit Risk](benefit_risk_profile.png)
+
+Combined efficacy and safety modeling illustrates the classical oncology trade-off between recurrence reduction and treatment toxicity.
 
 ---
 
@@ -113,9 +163,15 @@ Time-varying coefficient modeling was explored but did not improve discriminatio
 
 ## Repository Structure
 
-- breast_cancer_survival_modeling.R — Cox regression and survival analysis in R  
-- python_survival_modeling.ipynb — Random Survival Forest implementation in Python  
-- trial_data.csv — Simulated Phase III clinical dataset  
+- breast_cancer_survival_modeling.R — Recurrence survival analysis using Cox regression
+
+- python_survival_modeling.ipynb — Random Survival Forest survival modeling
+
+- adverse_event_modeling.R — Time-to-adverse event safety analysis
+
+- trial_data.csv — Simulated clinical trial dataset
+
+- trial_data_with_ae.csv — Dataset augmented with simulated adverse event outcomes
 
 ---
 
@@ -150,3 +206,77 @@ Clear survival separation observed across low, intermediate, and high-risk categ
 Despite slightly lower C-index, RSF demonstrated clinically meaningful separation between risk strata.
 
 These findings support practical utility for treatment personalization and recurrence monitoring.
+
+---
+
+### Safety Modeling — Time-to-Adverse Event Analysis
+
+To complement efficacy modeling, a safety analysis was conducted to evaluate treatment-related toxicity using time-to-adverse event survival modeling.
+
+Adverse event (AE) times were simulated using a proportional hazards framework incorporating treatment intensity and tumor aggressiveness.
+
+## AE Hazard Structure
+
+The adverse event hazard incorporated the following modifiers:
+
+Dose-dense therapy increases toxicity risk
+
+Triple-negative breast cancer slightly increases AE susceptibility
+
+Larger tumors modestly increase treatment-related toxicity
+
+## Statistical Analysis
+
+Adverse event outcomes were analyzed using:
+
+Kaplan–Meier estimation of AE-free survival
+
+Log-rank comparison by treatment arm
+
+Multivariable Cox proportional hazards modeling
+
+## Performance
+
+C-index (AE Cox Model): ~0.56
+
+Interpretation: Toxicity prediction typically demonstrates lower discrimination due to biological and treatment-related variability.
+
+## Key Finding
+
+Dose-dense therapy was associated with increased adverse event risk (HR > 1), consistent with intensified chemotherapy regimens.
+
+---
+
+### Benefit–Risk Evaluation
+
+A benefit–risk comparison was conducted by jointly examining treatment effects on recurrence risk and adverse event risk.
+
+Concept
+
+Oncology treatment decisions require balancing:
+
+- Efficacy benefit (reduction in recurrence risk)
+
+- Safety burden (increase in treatment toxicity)
+
+Using hazard ratios derived from Cox models, a benefit–risk visualization was constructed comparing:
+
+- Recurrence risk (efficacy outcome)
+
+- Adverse event risk (toxicity outcome)
+
+## -Interpretation
+
+Results demonstrate the classical oncology trade-off:
+
+- Dose-dense therapy reduces recurrence risk
+
+- Dose-dense therapy increases toxicity risk
+
+This type of evaluation mirrors real-world analyses performed during:
+
+- Phase III trial evaluation
+
+- Regulatory review
+
+- Clinical guideline development
