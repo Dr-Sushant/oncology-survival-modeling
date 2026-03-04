@@ -64,3 +64,24 @@ ae_censor_time <- 10
 
 trial_data$ae_event <- ifelse(trial_data$ae_time <= ae_censor_time, 1, 0)
 trial_data$ae_time <- pmin(trial_data$ae_time, ae_censor_time)
+
+write.csv(trial_data, "trial_data_with_ae.csv", row.names = FALSE)
+
+library(survival)
+library(survminer)
+
+ae_surv <- Surv(trial_data$ae_time, trial_data$ae_event)
+
+ae_fit <- survfit(ae_surv ~ treatment, data = trial_data)
+
+ggsurvplot(
+  ae_fit,
+  data = trial_data,
+  risk.table = TRUE,
+  pval = TRUE,
+  conf.int = TRUE,
+  legend.labs = c("Standard", "Dose-dense"),
+  xlab = "Years",
+  ylab = "Adverse Event-Free Probability",
+  title = "Time to Adverse Event by Treatment"
+)
