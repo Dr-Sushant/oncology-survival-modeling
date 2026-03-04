@@ -280,3 +280,7 @@ This type of evaluation mirrors real-world analyses performed during:
 - Regulatory review
 
 - Clinical guideline development
+
+## Project Evolution
+
+This project will continue to evolve as an exploration of advanced clinical trial analytics and AI-assisted survival modeling.
