@@ -91,3 +91,31 @@ cox_concordance <- summary(cox_model)$concordance
 cox_concordance
 
 write.csv(trial_data, "trial_data.csv", row.names = FALSE)
+
+# ----- Cox Risk Stratification -----
+
+# Linear predictor (risk score)
+cox_risk_score <- predict(cox_model, type = "lp")
+
+# Create tertiles
+trial_data$cox_risk_group <- cut(
+  cox_risk_score,
+  breaks = quantile(cox_risk_score, probs = c(0, 0.33, 0.66, 1)),
+  labels = c("Low Risk", "Intermediate Risk", "High Risk"),
+  include.lowest = TRUE
+)
+
+# KM by Cox risk group
+cox_risk_fit <- survfit(Surv(time, event) ~ cox_risk_group, data = trial_data)
+
+ggsurvplot(
+  cox_risk_fit,
+  data = trial_data,
+  risk.table = TRUE,
+  pval = TRUE,
+  legend.title = "Cox Risk Group",
+  xlab = "Years",
+  ylab = "Recurrence-Free Survival"
+)
+
+ggsave("cox_risk_stratification.png", width = 8, height = 6, dpi = 300)
