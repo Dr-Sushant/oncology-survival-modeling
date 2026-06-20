@@ -1,0 +1,37 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# generated responses
+response_*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# trained models
+*.pkl
+
+# large model artifacts
+03_models/
+
+# generated outputs
+04_outputs/validation/
+
+# RStudio
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# legacy dataset path
+LinkedIn_Post/data_raw/seer_breast_cancer_2000_2022.csv
+
+# large artifacts
+03_models/
+*.pkl
+
+# large datasets
+seer_breast_cancer_2000_2022.csv

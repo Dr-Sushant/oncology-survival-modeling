@@ -1,0 +1,3 @@
+Model,C-index,Calibration,Clinical_Utility
+Cox,0.78,Slight overestimation,Above treat-all
+RSF,0.8,Better alignment,Better in 10–30% thresholds
