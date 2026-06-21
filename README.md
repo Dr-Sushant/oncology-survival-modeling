@@ -1,13 +1,37 @@
-# Oncology Survival Modeling  
-Hybrid Clinical Trial Analytics: Efficacy, Toxicity, and Benefit–Risk Evaluation
+# Oncology Survival Analytics Platform
+
+Clinical Trial Analytics, Real-World Evidence Modeling, Survival Prediction, Validation, and Deployment Workflows
 
 ---
 
 ## Executive Summary
 
-This project simulates a Phase III breast cancer clinical trial (n = 2000) and evaluates recurrence-free survival using both classical biostatistical methods and machine learning survival models.
+This project evolved from a simulated Phase III breast cancer survival analysis into an end-to-end oncology survival analytics platform incorporating clinical trial analytics, real-world evidence modeling, survival prediction, validation frameworks, deployment infrastructure, and agent-oriented clinical workflows.
 
-The objective is to demonstrate an end-to-end hybrid clinical analytics workflow applicable to oncology trials, translational research, and regulatory survival modeling.
+---
+
+## Project Evolution
+
+This project evolved over ten development cycles, progressing from classical survival analysis to an agentic clinical AI workflow.
+
+| Week | Milestone                    |
+| ---- | ---------------------------- |
+| 1    | Survival Modeling            |
+| 2    | Benefit–Risk Assessment      |
+| 3    | Real-World Evidence Modeling |
+| 4    | Clinical Credibility         |
+| 5    | Decision Impact              |
+| 6    | Reproducible Workflow        |
+| 7    | Executable System            |
+| 8    | Generalizable System         |
+| 9    | Deployable Clinical Service  |
+| 10   | Agentic Clinical System      |
+
+For detailed evolution history, see: `docs/project_history.md`
+
+---
+
+## System Architecture
 
 ---
 
@@ -280,9 +304,3 @@ This type of evaluation mirrors real-world analyses performed during:
 - Regulatory review
 
 - Clinical guideline development
-
-## Project Evolution
-
-This project is part of an ongoing exploration of clinical trial analytics, survival modeling, and AI-assisted healthcare data science.
-
-Additional analytical components will be introduced as the project evolves.
