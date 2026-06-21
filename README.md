@@ -33,6 +33,62 @@ For detailed evolution history, see: `docs/project_history.md`
 
 ## System Architecture
 
+Clinical Data
+    ↓
+Survival Modeling
+(Cox PH / RSF / XGBoost)
+    ↓
+Validation
+(C-index, Calibration, DCA)
+    ↓
+Config-Driven Pipeline
+(YAML Execution)
+    ↓
+FastAPI Inference Layer
+    ↓
+Clinical Risk Assessment Workflow
+
+---
+
+## Platform Capabilities
+
+The platform evolved through ten development cycles and now supports:
+
+### Clinical Trial Analytics
+- Simulated Phase III oncology trial analysis
+- Kaplan–Meier survival estimation
+- Cox proportional hazards modeling
+- Benefit–risk evaluation
+
+### Real-World Evidence Modeling
+- SEER breast cancer registry analysis (~1.1M records)
+- Cox PH, Random Survival Forest, and XGBoost survival models
+- Risk stratification and feature importance analysis
+
+### Validation Framework
+- Train-test survival model validation
+- Calibration assessment
+- Decision Curve Analysis (DCA)
+- Generalization performance evaluation
+
+### Reproducible Engineering
+- Config-driven execution using YAML
+- Modular pipeline architecture
+- Automated metrics generation
+- Structured model artifact management
+
+### Clinical Deployment
+- FastAPI inference service
+- Structured patient input schema
+- JSON-based prediction responses
+- Deployment-ready architecture
+
+### Workflow Orchestration
+- Clinical prediction workflow design
+- Risk categorization logic
+- Clinical summary generation
+- Agent-oriented architecture exploration
+
 ---
 
 ## Key Results
