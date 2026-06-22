@@ -141,6 +141,14 @@ Combined efficacy and safety modeling illustrates the classical oncology trade-o
 
 ---
 
+## Platform Demonstration Projects
+
+The platform was developed through a series of progressively complex oncology analytics projects.
+
+The sections below summarize the foundational Phase III simulated trial workflow (Weeks 1–2), which served as the starting point for subsequent real-world evidence modeling, validation, deployment, and agentic workflow development.
+
+---
+
 ## Study Design (Simulated)
 
 - Sample size: 2000 patients  
@@ -241,17 +249,49 @@ Time-varying coefficient modeling was explored but did not improve discriminatio
 
 ---
 
+## Platform Outcomes
+
+As the platform evolved, additional capabilities were introduced beyond the initial simulated clinical trial workflow:
+
+- Real-world evidence modeling using SEER breast cancer data (~1.1M records)
+- Survival prediction using Cox PH, Random Survival Forest, and XGBoost
+- Risk stratification and feature importance analysis
+- Train-test validation and generalization assessment
+- Calibration and Decision Curve Analysis (DCA)
+- Config-driven execution using YAML workflows
+- FastAPI deployment for real-time inference
+- Clinical risk assessment workflow design
+- Agent-oriented orchestration concepts for clinical decision support
+
+These capabilities collectively transformed the project from a standalone survival model into a broader oncology survival analytics platform.
+
+---
+
 ## Repository Structure
 
-- breast_cancer_survival_modeling.R — Recurrence survival analysis using Cox regression
+01_data/
+    SDTM / ADaM style datasets
 
-- python_survival_modeling.ipynb — Random Survival Forest survival modeling
+02_configs/
+    YAML workflow configurations
 
-- adverse_event_modeling.R — Time-to-adverse event safety analysis
+03_models/
+    Cox PH and RSF artifacts
 
-- trial_data.csv — Simulated clinical trial dataset
+04_outputs/
+    Metrics, validation, calibration, DCA
 
-- trial_data_with_ae.csv — Dataset augmented with simulated adverse event outcomes
+figures/
+    Project visualizations and LinkedIn artifacts
+
+docs/
+    Project evolution history and screenshots
+
+app.py
+    FastAPI inference service
+
+run_pipeline.py
+    Config-driven execution entrypoint
 
 ---
 
