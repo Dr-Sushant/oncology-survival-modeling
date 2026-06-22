@@ -52,6 +52,16 @@ Clinical Risk Assessment
 
 ---
 
+## Deployment Preview
+
+### FastAPI Inference Service
+
+![API Interface](docs/screenshots/API_Final1.png)
+
+The platform exposes validated survival models through a FastAPI inference layer capable of accepting structured patient features and returning standardized risk predictions.
+
+---
+
 ## Platform Capabilities
 
 The platform evolved through ten development cycles and now supports:
