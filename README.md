@@ -1,6 +1,6 @@
 # Oncology Survival Analytics Platform
 
-![Platform Architecture](docs/screenshots/architecture.png)
+![Platform Architecture](docs/screenshots/platform_architecture.png)
 
 Clinical Trial Analytics, Real-World Evidence Modeling, Survival Prediction, Validation, and Deployment Workflows
 
