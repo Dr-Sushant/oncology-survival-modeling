@@ -34,19 +34,19 @@ For detailed evolution history, see: `docs/project_history.md`
 ## System Architecture
 
 Clinical Data
-    ↓
+      ↓
+SDTM / ADaM Layer
+      ↓
 Survival Modeling
 (Cox PH / RSF / XGBoost)
-    ↓
-Validation
-(C-index, Calibration, DCA)
-    ↓
+      ↓
+Validation Framework
+      ↓
 Config-Driven Pipeline
-(YAML Execution)
-    ↓
-FastAPI Inference Layer
-    ↓
-Clinical Risk Assessment Workflow
+      ↓
+FastAPI
+      ↓
+Clinical Risk Assessment
 
 ---
 
@@ -87,7 +87,7 @@ The platform evolved through ten development cycles and now supports:
 - Clinical prediction workflow design
 - Risk categorization logic
 - Clinical summary generation
-- Agent-oriented architecture exploration
+- Agent-oriented clinical decision support concepts
 
 ---
 
